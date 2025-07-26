@@ -27,6 +27,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/logo.ico" />
 
+    <!-- External CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -38,1648 +39,8 @@
       rel="stylesheet"
     />
 
-    <style>
-      /* CSS Variables */
-      :root {
-        --primary-brown: #432626;
-        --primary-yellow: #ffbd59;
-        --dark-brown: #2d1a1a;
-        --light-brown: #6b4423;
-        --cream: #fdf6e3;
-        --white: #ffffff;
-        --text-dark: #2c2c2c;
-        --text-light: #666666;
-        --text-muted: #999999;
-        --shadow-light: 0 2px 10px rgba(67, 38, 38, 0.1);
-        --shadow-medium: 0 4px 20px rgba(67, 38, 38, 0.15);
-        --shadow-heavy: 0 8px 30px rgba(67, 38, 38, 0.2);
-        --border-radius: 12px;
-        --border-radius-small: 8px;
-        --transition: all 0.3s ease;
-        --gradient-primary: linear-gradient(
-          135deg,
-          var(--primary-brown) 0%,
-          var(--dark-brown) 100%
-        );
-        --gradient-accent: linear-gradient(
-          135deg,
-          var(--primary-yellow) 0%,
-          #f4a729 100%
-        );
-      }
-
-      /* Reset */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Base Styles */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, sans-serif;
-        line-height: 1.6;
-        color: var(--text-dark);
-        background-color: var(--cream);
-        overflow-x: hidden;
-      }
-
-      /* Navigation */
-      .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(67, 38, 38, 0.1);
-        transition: var(--transition);
-      }
-
-      .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: var(--shadow-medium);
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 70px;
-      }
-
-      .nav-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      .nav-logo-img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .nav-brand {
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: var(--primary-brown);
-      }
-
-      .nav-menu {
-        display: flex;
-        gap: 2rem;
-      }
-
-      .nav-link {
-        text-decoration: none;
-        color: var(--text-dark);
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: var(--transition);
-        position: relative;
-      }
-
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--primary-brown);
-      }
-
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-yellow);
-        transition: var(--transition);
-      }
-
-      .nav-link:hover::after,
-      .nav-link.active::after {
-        width: 100%;
-      }
-
-      .nav-cta {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-call-btn {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: var(--gradient-primary);
-        color: var(--white);
-        text-decoration: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: var(--transition);
-        box-shadow: var(--shadow-light);
-      }
-
-      .nav-call-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-medium);
-      }
-
-      .nav-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-        cursor: pointer;
-      }
-
-      .bar {
-        width: 25px;
-        height: 3px;
-        background: var(--primary-brown);
-        border-radius: 3px;
-        transition: var(--transition);
-      }
-
-      /* Container */
-      .container {
-        margin-top: 70px;
-      }
-
-      .section-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      /* Hero Section - Professional & Premium */
-      .hero-section {
-        position: relative;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        background: linear-gradient(
-          135deg,
-          #1a1a1a 0%,
-          #2d1f1f 25%,
-          var(--primary-brown) 50%,
-          var(--dark-brown) 75%,
-          #1a1a1a 100%
-        );
-      }
-
-      .hero-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          135deg,
-          #1a1a1a 0%,
-          #2d1f1f 25%,
-          var(--primary-brown) 50%,
-          var(--dark-brown) 75%,
-          #1a1a1a 100%
-        );
-        z-index: -2;
-      }
-
-      .hero-bg::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(
-            circle at 20% 50%,
-            rgba(255, 189, 89, 0.03) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(255, 189, 89, 0.02) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 40% 80%,
-            rgba(255, 189, 89, 0.01) 0%,
-            transparent 50%
-          );
-        z-index: -1;
-      }
-
-      .hero-bg::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,189,89,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-        z-index: -1;
-        opacity: 0.3;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        color: var(--white);
-        max-width: 1400px;
-        width: 100%;
-        padding: 4rem 2rem;
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 8rem;
-        align-items: center;
-      }
-
-      .hero-text {
-        text-align: left;
-      }
-
-      .hero-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-      }
-
-      .hero-truck-img {
-        width: 100%;
-        max-width: 550px;
-        height: auto;
-        border-radius: 24px;
-        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4),
-          0 10px 40px rgba(255, 189, 89, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transition: var(--transition);
-        border: 1px solid rgba(255, 189, 89, 0.1);
-        backdrop-filter: blur(10px);
-        transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
-      }
-
-      .hero-truck-img:hover {
-        transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) scale(1.02);
-        box-shadow: 0 35px 100px rgba(0, 0, 0, 0.5),
-          0 15px 50px rgba(255, 189, 89, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.15);
-      }
-
-      .hero-title {
-        font-size: 4.5rem;
-        font-weight: 900;
-        margin-bottom: 2rem;
-        line-height: 1.1;
-        position: relative;
-        letter-spacing: -0.02em;
-        font-family: "Inter", system-ui, -apple-system, sans-serif;
-      }
-
-      .typewriter-text {
-        display: inline-block;
-        position: relative;
-        background: linear-gradient(
-          135deg,
-          #ffffff 0%,
-          #f8f9fa 25%,
-          var(--primary-yellow) 50%,
-          #ffffff 75%,
-          #f8f9fa 100%
-        );
-        background-size: 300% 300%;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: gradientShift 4s ease-in-out infinite;
-        border-right: 4px solid var(--primary-yellow);
-        padding-right: 8px;
-        text-shadow: 0 0 30px rgba(255, 189, 89, 0.3);
-      }
-
-      .hero-subtitle {
-        font-size: 1.6rem;
-        opacity: 0.9;
-        margin-bottom: 3rem;
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.4;
-        max-width: 500px;
-      }
-
-      .hero-badges {
-        display: flex;
-        gap: 1.5rem;
-        margin-bottom: 4rem;
-        flex-wrap: wrap;
-      }
-
-      .badge {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(20px);
-        padding: 1rem 1.5rem;
-        border-radius: 50px;
-        font-size: 0.95rem;
-        font-weight: 600;
-        border: 1px solid rgba(255, 189, 89, 0.2);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .badge::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 189, 89, 0.1),
-          transparent
-        );
-        transition: left 0.6s;
-      }
-
-      .badge:hover::before {
-        left: 100%;
-      }
-
-      .badge:hover {
-        background: rgba(255, 189, 89, 0.15);
-        border-color: rgba(255, 189, 89, 0.4);
-        transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 8px 25px rgba(255, 189, 89, 0.2);
-      }
-
-      .hero-cta {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-      }
-
-      .cta-buttons {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-      }
-
-      .cta-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 1.2rem;
-        text-decoration: none;
-        padding: 1.8rem 2.5rem;
-        border-radius: 16px;
-        font-weight: 700;
-        font-size: 1.1rem;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-        border: none;
-        cursor: pointer;
-        min-width: 240px;
-        justify-content: center;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      .cta-button.primary {
-        background: linear-gradient(
-          135deg,
-          var(--primary-yellow) 0%,
-          #f4a729 50%,
-          #e09419 100%
-        );
-        color: var(--primary-brown);
-        box-shadow: 0 12px 40px rgba(255, 189, 89, 0.3),
-          0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        border: 1px solid rgba(255, 189, 89, 0.5);
-      }
-
-      .cta-button.primary:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 20px 60px rgba(255, 189, 89, 0.4),
-          0 8px 25px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        background: linear-gradient(
-          135deg,
-          #ffc970 0%,
-          var(--primary-yellow) 50%,
-          #f4a729 100%
-        );
-      }
-
-      .cta-button.whatsapp-btn {
-        background: linear-gradient(
-          135deg,
-          #25d366 0%,
-          #128c7e 50%,
-          #0d6e5c 100%
-        );
-        color: white;
-        box-shadow: 0 12px 40px rgba(37, 211, 102, 0.3),
-          0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(37, 211, 102, 0.3);
-      }
-
-      .cta-button.whatsapp-btn:hover {
-        background: linear-gradient(
-          135deg,
-          #2ee673 0%,
-          #25d366 50%,
-          #128c7e 100%
-        );
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 20px 60px rgba(37, 211, 102, 0.4),
-          0 8px 25px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      }
-
-      .cta-button::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        transition: left 0.6s;
-      }
-
-      .cta-button:hover::before {
-        left: 100%;
-      }
-
-      .cta-button i {
-        font-size: 1.8rem;
-        transition: transform 0.3s ease;
-      }
-
-      .cta-button:hover i {
-        transform: scale(1.1);
-      }
-
-      .cta-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .cta-main {
-        font-size: 1.2rem;
-        line-height: 1;
-        font-weight: 800;
-      }
-
-      .cta-sub {
-        font-size: 0.9rem;
-        opacity: 0.8;
-        font-weight: 500;
-        margin-top: 2px;
-      }
-
-      .cta-note {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.1rem;
-        font-weight: 500;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        align-self: center;
-      }
-
-      /* Section Styles */
-      section {
-        padding: 5rem 0;
-      }
-
-      .section-header {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--primary-brown);
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      .section-title i {
-        color: var(--primary-yellow);
-        font-size: 2rem;
-      }
-
-      .section-desc {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      /* Location Section */
-      .location-section {
-        background: var(--white);
-        padding-bottom: 2rem;
-      }
-
-      .location-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      .location-item {
-        background: var(--white);
-        border: 2px solid #e9ecef;
-        padding: 1.5rem 1rem;
-        border-radius: var(--border-radius);
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        transition: var(--transition);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-        box-shadow: var(--shadow-light);
-        text-align: center;
-        flex-direction: column;
-      }
-
-      .location-item:hover {
-        border-color: var(--primary-yellow);
-        color: var(--primary-brown);
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-medium);
-      }
-
-      .location-item i {
-        font-size: 1.1rem;
-        color: var(--primary-yellow);
-      }
-
-      .show-all-btn {
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-        background: transparent;
-        border: 2px dashed var(--primary-brown);
-        padding: 1rem 1.5rem;
-        border-radius: var(--border-radius);
-        color: var(--primary-brown);
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.75rem;
-      }
-
-      .show-all-btn:hover {
-        background: var(--primary-brown);
-        color: var(--white);
-      }
-
-      /* Services Section */
-      .services-section {
-        background: var(--cream);
-      }
-
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-      }
-
-      .service-card {
-        background: var(--white);
-        padding: 2.5rem 2rem;
-        border-radius: var(--border-radius);
-        text-align: center;
-        box-shadow: var(--shadow-light);
-        border: 1px solid rgba(67, 38, 38, 0.1);
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .service-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: var(--gradient-accent);
-        transform: translateX(-100%);
-        transition: var(--transition);
-      }
-
-      .service-card:hover::before {
-        transform: translateX(0);
-      }
-
-      .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-heavy);
-      }
-
-      .service-icon {
-        width: 80px;
-        height: 80px;
-        background: var(--gradient-accent);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.5rem;
-        transition: var(--transition);
-      }
-
-      .service-card:hover .service-icon {
-        transform: scale(1.1);
-      }
-
-      .service-icon i {
-        font-size: 2rem;
-        color: var(--primary-brown);
-      }
-
-      .service-title {
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--primary-brown);
-      }
-
-      .service-desc {
-        font-size: 1rem;
-        color: var(--text-light);
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-      }
-
-      .service-features {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: left;
-      }
-
-      .service-features span {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        font-weight: 500;
-      }
-
-      /* Gallery Section */
-      .gallery-section {
-        background: var(--white);
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-      }
-
-      .gallery-item {
-        position: relative;
-        border-radius: var(--border-radius);
-        overflow: hidden;
-        aspect-ratio: 16/12;
-        box-shadow: var(--shadow-medium);
-        transition: var(--transition);
-      }
-
-      .gallery-item:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-heavy);
-      }
-
-      .gallery-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: var(--transition);
-      }
-
-      .gallery-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(67, 38, 38, 0.8) 0%,
-          rgba(45, 26, 26, 0.9) 100%
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: var(--transition);
-      }
-
-      .gallery-item:hover .gallery-overlay {
-        opacity: 1;
-      }
-
-      .gallery-content {
-        text-align: center;
-        color: var(--white);
-        padding: 1rem;
-      }
-
-      .gallery-content h4 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-      }
-
-      .gallery-content p {
-        font-size: 0.9rem;
-        opacity: 0.9;
-        margin-bottom: 1rem;
-      }
-
-      .gallery-btn {
-        background: var(--gradient-accent);
-        color: var(--primary-brown);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: var(--transition);
-      }
-
-      .gallery-btn:hover {
-        transform: scale(1.1);
-      }
-
-      /* About Section */
-      .about-section {
-        background: var(--cream);
-      }
-
-      .about-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
-        margin-bottom: 4rem;
-      }
-
-      .about-text .section-header {
-        text-align: left;
-        margin-bottom: 2rem;
-      }
-
-      .about-text .section-title {
-        justify-content: flex-start;
-      }
-
-      .about-story p {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        margin-bottom: 1.5rem;
-        line-height: 1.7;
-      }
-
-      .about-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .about-img-container {
-        position: relative;
-        text-align: center;
-        width: 100%;
-      }
-
-      .istanbul-image {
-        display: flex;
-        justify-content: center;
-      }
-
-      .about-istanbul {
-        width: 450px;
-        height: 340px;
-        border-radius: var(--border-radius);
-        border: 4px solid var(--primary-brown);
-        box-shadow: var(--shadow-heavy);
-        object-fit: cover;
-      }
-
-      .about-values {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-
-      .value-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 2rem 1.5rem;
-        background: var(--white);
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-light);
-        transition: var(--transition);
-      }
-
-      .value-item:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-medium);
-      }
-
-      .value-item i {
-        font-size: 2.5rem;
-        color: var(--primary-yellow);
-        margin-bottom: 1rem;
-      }
-
-      .value-item h4 {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--primary-brown);
-        margin-bottom: 0.5rem;
-      }
-
-      .value-item p {
-        font-size: 0.95rem;
-        color: var(--text-light);
-        margin: 0;
-      }
-
-      /* Contact Section */
-      .contact-section {
-        background: var(--white);
-      }
-
-      .contact-content {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .contact-info {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 2rem;
-        background: var(--cream);
-        border-radius: var(--border-radius);
-        transition: var(--transition);
-        box-shadow: var(--shadow-light);
-      }
-
-      .contact-item:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-medium);
-      }
-
-      .contact-icon {
-        width: 70px;
-        height: 70px;
-        background: var(--gradient-accent);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-
-      .contact-icon i {
-        font-size: 1.8rem;
-        color: var(--primary-brown);
-      }
-
-      .contact-details h4 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: var(--primary-brown);
-        margin-bottom: 0.5rem;
-      }
-
-      .contact-details a {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        text-decoration: none;
-        font-weight: 600;
-        transition: var(--transition);
-      }
-
-      .contact-details a:hover {
-        color: var(--primary-brown);
-      }
-
-      .contact-details span {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        font-weight: 500;
-      }
-
-      .map-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-        color: var(--primary-brown);
-        text-decoration: none;
-        transition: var(--transition);
-      }
-
-      .map-link:hover {
-        color: var(--primary-yellow);
-      }
-
-      /* Footer */
-      .footer {
-        background: var(--gradient-primary);
-        color: var(--white);
-        padding: 3rem 0 1rem;
-      }
-
-      .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-      }
-
-      .footer-section h4 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        color: var(--primary-yellow);
-      }
-
-      .footer-logo {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-
-      .footer-logo-img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .footer-logo h3 {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: var(--white);
-      }
-
-      .footer-section p {
-        line-height: 1.7;
-        opacity: 0.9;
-        margin-bottom: 1.5rem;
-      }
-
-      .footer-social {
-        display: flex;
-        gap: 1rem;
-      }
-
-      .social-link {
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--white);
-        text-decoration: none;
-        transition: var(--transition);
-      }
-
-      .social-link:hover {
-        background: var(--primary-yellow);
-        color: var(--primary-brown);
-        transform: translateY(-2px);
-      }
-
-      .footer-section ul {
-        list-style: none;
-      }
-
-      .footer-section ul li {
-        margin-bottom: 0.75rem;
-      }
-
-      .footer-section ul li a {
-        color: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
-        transition: var(--transition);
-      }
-
-      .footer-section ul li a:hover {
-        color: var(--primary-yellow);
-      }
-
-      .footer-contact p {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
-      }
-
-      .footer-contact i {
-        color: var(--primary-yellow);
-        width: 20px;
-        text-align: center;
-      }
-
-      .footer-bottom {
-        text-align: center;
-        padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        opacity: 0.8;
-        font-size: 0.9rem;
-      }
-
-      /* Floating Elements */
-      .floating-call-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 999;
-      }
-
-      .floating-call-btn a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 60px;
-        height: 60px;
-        background: var(--gradient-accent);
-        color: var(--primary-brown);
-        border-radius: 50%;
-        text-decoration: none;
-        box-shadow: 0 6px 20px rgba(255, 189, 89, 0.4);
-        transition: var(--transition);
-        animation: float 3s ease-in-out infinite;
-      }
-
-      .floating-call-btn a:hover {
-        transform: scale(1.1);
-      }
-
-      .floating-call-btn i {
-        font-size: 1.5rem;
-      }
-
-      .back-to-top {
-        position: fixed;
-        bottom: 30px;
-        left: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--primary-brown);
-        color: var(--white);
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-        z-index: 999;
-      }
-
-      .back-to-top.show {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .back-to-top:hover {
-        background: var(--primary-yellow);
-        color: var(--primary-brown);
-        transform: translateY(-3px);
-      }
-
-      /* Gallery Modal */
-      .gallery-modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(5px);
-      }
-
-      .modal-content {
-        position: relative;
-        margin: auto;
-        padding: 20px;
-        width: 90%;
-        max-width: 800px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .modal-close {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-        z-index: 10000;
-      }
-
-      .modal-close:hover {
-        color: var(--primary-yellow);
-      }
-
-      #modalImage {
-        width: 100%;
-        height: auto;
-        border-radius: var(--border-radius);
-      }
-
-      /* Animations */
-      @keyframes gradientShift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        25% {
-          background-position: 50% 25%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        75% {
-          background-position: 50% 75%;
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) scale(1);
-        }
-        50% {
-          transform: translateY(-8px) scale(1.02);
-        }
-      }
-
-      /* Mobile Responsive Design - ONLY Mobile Changes */
-      @media (max-width: 768px) {
-        /* Navigation - Mobile */
-        .nav-container {
-          padding: 0 1rem;
-          height: 60px;
-        }
-
-        .nav-logo-img {
-          width: 35px;
-          height: 35px;
-        }
-
-        .nav-brand {
-          font-size: 1.3rem;
-        }
-
-        .nav-menu {
-          position: fixed;
-          left: -100%;
-          top: 60px;
-          flex-direction: column;
-          background: var(--white);
-          width: 100%;
-          text-align: center;
-          transition: 0.3s;
-          box-shadow: var(--shadow-medium);
-          padding: 2rem 0;
-          align-items: center;
-          z-index: 999;
-        }
-
-        .nav-menu.active {
-          left: 0;
-        }
-
-        .nav-toggle {
-          display: flex;
-        }
-
-        .nav-toggle.active .bar:nth-child(2) {
-          opacity: 0;
-        }
-
-        .nav-toggle.active .bar:nth-child(1) {
-          transform: translateY(7px) rotate(45deg);
-        }
-
-        .nav-toggle.active .bar:nth-child(3) {
-          transform: translateY(-7px) rotate(-45deg);
-        }
-
-        .nav-cta {
-          display: none;
-        }
-
-        .container {
-          margin-top: 60px;
-        }
-
-        /* Hero Section - Mobile Full Screen Brown */
-        .hero-section {
-          min-height: 100vh;
-          background: var(--primary-brown);
-        }
-
-        .hero-bg {
-          background: var(--primary-brown);
-        }
-
-        .hero-bg::before,
-        .hero-bg::after {
-          display: none;
-        }
-
-        .hero-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          text-align: center;
-          padding: 2rem 1rem;
-          min-height: calc(100vh - 60px);
-          align-content: center;
-        }
-
-        .hero-text {
-          text-align: center;
-          order: 2;
-        }
-
-        .hero-image {
-          order: 1;
-          margin-bottom: 1rem;
-        }
-
-        .hero-truck-img {
-          max-width: 280px;
-          transform: none;
-          border-radius: 16px;
-        }
-
-        .hero-truck-img:hover {
-          transform: scale(1.02);
-        }
-
-        .hero-title {
-          font-size: 2.2rem;
-          margin-bottom: 1rem;
-        }
-
-        .hero-subtitle {
-          font-size: 1.1rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .hero-badges {
-          justify-content: center;
-          gap: 0.8rem;
-          margin-bottom: 2rem;
-          flex-wrap: wrap;
-        }
-
-        .badge {
-          padding: 0.6rem 1rem;
-          font-size: 0.8rem;
-          min-width: 140px;
-        }
-
-        .cta-buttons {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-        }
-
-        .cta-button {
-          width: 100%;
-          max-width: 280px;
-          padding: 1.2rem 1.5rem;
-          font-size: 0.95rem;
-          min-width: auto;
-        }
-
-        .cta-main {
-          font-size: 1rem;
-        }
-
-        .cta-sub {
-          font-size: 0.8rem;
-        }
-
-        .cta-note {
-          text-align: center;
-          font-size: 0.95rem;
-        }
-
-        /* Sections - Mobile Optimized */
-        section {
-          padding: 2.5rem 0;
-        }
-
-        .section-container {
-          padding: 0 1rem;
-        }
-
-        .section-title {
-          font-size: 1.8rem;
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-
-        .section-title i {
-          font-size: 1.5rem;
-        }
-
-        .section-desc {
-          font-size: 0.95rem;
-        }
-
-        /* Location Section - Mobile */
-        .location-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.8rem;
-        }
-
-        .location-item {
-          padding: 1rem 0.5rem;
-          font-size: 0.85rem;
-        }
-
-        .show-all-btn {
-          max-width: 250px;
-          padding: 0.8rem 1.2rem;
-          font-size: 0.9rem;
-        }
-
-        /* Services Section - Mobile */
-        .services-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .service-card {
-          padding: 1.8rem 1.5rem;
-        }
-
-        .service-icon {
-          width: 60px;
-          height: 60px;
-        }
-
-        .service-icon i {
-          font-size: 1.5rem;
-        }
-
-        .service-title {
-          font-size: 1.2rem;
-        }
-
-        .service-desc {
-          font-size: 0.9rem;
-        }
-
-        /* Gallery Section - Mobile */
-        .gallery-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        /* About Section - Mobile */
-        .about-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          text-align: center;
-        }
-
-        .about-text .section-header {
-          text-align: center;
-        }
-
-        .about-text .section-title {
-          justify-content: center;
-        }
-
-        .about-istanbul {
-          width: 100%;
-          max-width: 320px;
-          height: 240px;
-        }
-
-        .about-values {
-          grid-template-columns: 1fr;
-          gap: 1.2rem;
-        }
-
-        .value-item {
-          padding: 1.5rem 1.2rem;
-        }
-
-        .value-item i {
-          font-size: 2rem;
-        }
-
-        .value-item h4 {
-          font-size: 1.1rem;
-        }
-
-        .value-item p {
-          font-size: 0.9rem;
-        }
-
-        /* Contact Section - Mobile */
-        .contact-info {
-          grid-template-columns: 1fr;
-          gap: 1.2rem;
-        }
-
-        .contact-item {
-          padding: 1.5rem;
-        }
-
-        .contact-icon {
-          width: 55px;
-          height: 55px;
-        }
-
-        .contact-icon i {
-          font-size: 1.4rem;
-        }
-
-        .contact-details h4 {
-          font-size: 1.1rem;
-        }
-
-        .contact-details a,
-        .contact-details span {
-          font-size: 0.95rem;
-        }
-
-        /* Footer - Mobile */
-        .footer {
-          padding: 2.5rem 0 1rem;
-        }
-
-        .footer-content {
-          grid-template-columns: 1fr;
-          text-align: center;
-          padding: 0 1rem;
-          gap: 2rem;
-        }
-
-        .footer-logo {
-          justify-content: center;
-        }
-
-        .footer-logo h3 {
-          font-size: 1.2rem;
-        }
-
-        .footer-section h4 {
-          font-size: 1.1rem;
-        }
-
-        .footer-section p {
-          font-size: 0.9rem;
-        }
-
-        .footer-social {
-          justify-content: center;
-        }
-
-        .footer-contact p {
-          justify-content: center;
-        }
-
-        /* Floating Elements - Mobile */
-        .floating-call-btn {
-          bottom: 20px;
-          right: 20px;
-        }
-
-        .floating-call-btn a {
-          width: 50px;
-          height: 50px;
-        }
-
-        .floating-call-btn i {
-          font-size: 1.2rem;
-        }
-
-        .back-to-top {
-          bottom: 20px;
-          left: 20px;
-          width: 45px;
-          height: 45px;
-        }
-      }
-
-      /* Extra Small Mobile */
-      @media (max-width: 480px) {
-        .hero-title {
-          font-size: 1.8rem;
-        }
-
-        .hero-truck-img {
-          max-width: 240px;
-        }
-
-        .badge {
-          padding: 0.5rem 0.8rem;
-          font-size: 0.75rem;
-          min-width: 120px;
-        }
-
-        .cta-button {
-          max-width: 260px;
-          padding: 1rem 1.2rem;
-          font-size: 0.9rem;
-        }
-
-        .location-grid {
-          gap: 0.6rem;
-        }
-
-        .location-item {
-          padding: 0.8rem 0.4rem;
-          font-size: 0.8rem;
-        }
-
-        .section-title {
-          font-size: 1.6rem;
-        }
-
-        .about-istanbul {
-          max-width: 280px;
-          height: 200px;
-        }
-      }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -1694,11 +55,21 @@
           <span class="nav-brand">Borcelle</span>
         </a>
         <div class="nav-menu" id="navMenu">
-          <a href="#home" class="nav-link active">Ana Sayfa</a>
-          <a href="#services" class="nav-link">Hizmetler</a>
-          <a href="#gallery" class="nav-link">Galeri</a>
-          <a href="#about" class="nav-link">Hakkımızda</a>
-          <a href="#contact" class="nav-link">İletişim</a>
+          <a href="#home" class="nav-link active" data-translate="nav-home"
+            >Ana Sayfa</a
+          >
+          <a href="#services" class="nav-link" data-translate="nav-services"
+            >Hizmetler</a
+          >
+          <a href="#gallery" class="nav-link" data-translate="nav-gallery"
+            >Galeri</a
+          >
+          <a href="#about" class="nav-link" data-translate="nav-about"
+            >Hakkımızda</a
+          >
+          <a href="#contact" class="nav-link" data-translate="nav-contact"
+            >İletişim</a
+          >
         </div>
         <div class="nav-toggle" id="navToggle">
           <span class="bar"></span>
@@ -1706,9 +77,32 @@
           <span class="bar"></span>
         </div>
         <div class="nav-cta">
+          <div class="language-selector">
+            <button class="lang-btn active" data-lang="tr" title="Türkçe">
+              <img
+                src="https://flagcdn.com/w40/tr.png"
+                alt="Türkçe"
+                class="flag-icon"
+              />
+            </button>
+            <button class="lang-btn" data-lang="en" title="English">
+              <img
+                src="https://flagcdn.com/w40/gb.png"
+                alt="English"
+                class="flag-icon"
+              />
+            </button>
+            <button class="lang-btn" data-lang="ru" title="Русский">
+              <img
+                src="https://flagcdn.com/w40/ru.png"
+                alt="Русский"
+                class="flag-icon"
+              />
+            </button>
+          </div>
           <a href="tel:+905551234567" class="nav-call-btn">
             <i class="fas fa-phone"></i>
-            <span>Hemen Ara</span>
+            <span data-translate="call-now">Hemen Ara</span>
           </a>
         </div>
       </div>
@@ -1721,23 +115,28 @@
         <div class="hero-content">
           <div class="hero-text">
             <h1 class="hero-title">
-              <span class="typewriter-text" id="typewriter"
+              <span
+                class="typewriter-text"
+                id="typewriter"
+                data-translate="hero-title"
                 >7/24 Çekici Hizmeti</span
               >
             </h1>
-            <p class="hero-subtitle">İstanbul'da güvenilir çekici hizmeti</p>
+            <p class="hero-subtitle" data-translate="hero-subtitle">
+              İstanbul'da güvenilir çekici hizmeti
+            </p>
             <div class="hero-badges">
               <div class="badge">
                 <i class="fas fa-clock"></i>
-                <span>7/24 Hizmet</span>
+                <span data-translate="badge-24-7">7/24 Hizmet</span>
               </div>
               <div class="badge">
                 <i class="fas fa-bolt"></i>
-                <span>Hızlı Geliyoruz</span>
+                <span data-translate="badge-fast">Hızlı Geliyoruz</span>
               </div>
               <div class="badge">
                 <i class="fas fa-shield-alt"></i>
-                <span>Güvenli Taşıma</span>
+                <span data-translate="badge-safe">Güvenli Taşıma</span>
               </div>
             </div>
             <div class="hero-cta">
@@ -1745,7 +144,9 @@
                 <a href="tel:+905551234567" class="cta-button primary">
                   <i class="fas fa-phone"></i>
                   <div class="cta-text">
-                    <span class="cta-main">HEMEN ARA</span>
+                    <span class="cta-main" data-translate="cta-call"
+                      >HEMEN ARA</span
+                    >
                     <small class="cta-sub">0555 123 45 67</small>
                   </div>
                 </a>
@@ -1755,12 +156,18 @@
                 >
                   <i class="fab fa-whatsapp"></i>
                   <div class="cta-text">
-                    <span class="cta-main">KONUM GÖNDER</span>
-                    <small class="cta-sub">WhatsApp ile</small>
+                    <span class="cta-main" data-translate="cta-location"
+                      >KONUM GÖNDER</span
+                    >
+                    <small class="cta-sub" data-translate="cta-whatsapp"
+                      >WhatsApp ile</small
+                    >
                   </div>
                 </button>
               </div>
-              <p class="cta-note">Acil durumlarda 15 dakikada yanınızdayız!</p>
+              <p class="cta-note" data-translate="cta-note">
+                Acil durumlarda 15 dakikada yanınızdayız!
+              </p>
             </div>
           </div>
           <div class="hero-image">
@@ -1779,9 +186,11 @@
           <div class="section-header">
             <h2 class="section-title">
               <i class="fas fa-map-marker-alt"></i>
-              Hizmet Verdiğimiz Bölgeler
+              <span data-translate="section-locations"
+                >Hizmet Verdiğimiz Bölgeler</span
+              >
             </h2>
-            <p class="section-desc">
+            <p class="section-desc" data-translate="section-locations-desc">
               İstanbul'un her ilçesinde hızlı çekici hizmeti
             </p>
           </div>
@@ -1829,7 +238,7 @@
           </div>
           <button class="show-all-btn" id="showAllBtn">
             <i class="fas fa-chevron-down"></i>
-            <span>Tüm İlçeleri Göster</span>
+            <span data-translate="show-all-districts">Tüm İlçeleri Göster</span>
           </button>
         </div>
       </section>
@@ -1840,9 +249,9 @@
           <div class="section-header">
             <h2 class="section-title">
               <i class="fas fa-truck"></i>
-              Hizmetlerimiz
+              <span data-translate="section-services">Hizmetlerimiz</span>
             </h2>
-            <p class="section-desc">
+            <p class="section-desc" data-translate="section-services-desc">
               Her türlü araç için profesyonel çekici hizmeti
             </p>
           </div>
@@ -1851,80 +260,138 @@
               <div class="service-icon">
                 <i class="fas fa-car-crash"></i>
               </div>
-              <h3 class="service-title">Kaza Çekici</h3>
-              <p class="service-desc">
+              <h3 class="service-title" data-translate="service-accident-title">
+                Kaza Çekici
+              </h3>
+              <p class="service-desc" data-translate="service-accident-desc">
                 Kaza sonrası güvenli ve hızlı araç taşıma hizmeti
               </p>
               <div class="service-features">
-                <span>• Sigortalı taşıma</span>
-                <span>• 7/24 hizmet</span>
-                <span>• Hızlı müdahale</span>
+                <span data-translate="service-accident-feature1"
+                  >• Sigortalı taşıma</span
+                >
+                <span data-translate="service-accident-feature2"
+                  >• 7/24 hizmet</span
+                >
+                <span data-translate="service-accident-feature3"
+                  >• Hızlı müdahale</span
+                >
               </div>
             </div>
             <div class="service-card">
               <div class="service-icon">
                 <i class="fas fa-tools"></i>
               </div>
-              <h3 class="service-title">Arıza Çekici</h3>
-              <p class="service-desc">
+              <h3
+                class="service-title"
+                data-translate="service-breakdown-title"
+              >
+                Arıza Çekici
+              </h3>
+              <p class="service-desc" data-translate="service-breakdown-desc">
                 Motor arızası ve teknik problemler için çekici
               </p>
               <div class="service-features">
-                <span>• Uzman ekip</span>
-                <span>• Modern araçlar</span>
-                <span>• Uygun fiyat</span>
+                <span data-translate="service-breakdown-feature1"
+                  >• Uzman ekip</span
+                >
+                <span data-translate="service-breakdown-feature2"
+                  >• Modern araçlar</span
+                >
+                <span data-translate="service-breakdown-feature3"
+                  >• Uygun fiyat</span
+                >
               </div>
             </div>
             <div class="service-card">
               <div class="service-icon">
                 <i class="fas fa-road"></i>
               </div>
-              <h3 class="service-title">Yol Yardım</h3>
-              <p class="service-desc">
+              <h3 class="service-title" data-translate="service-roadside-title">
+                Yol Yardım
+              </h3>
+              <p class="service-desc" data-translate="service-roadside-desc">
                 Lastik tamiri, marş yardımı ve acil müdahale
               </p>
               <div class="service-features">
-                <span>• Lastik değişimi</span>
-                <span>• Akü takviyesi</span>
-                <span>• Yakıt ikmali</span>
+                <span data-translate="service-roadside-feature1"
+                  >• Lastik değişimi</span
+                >
+                <span data-translate="service-roadside-feature2"
+                  >• Akü takviyesi</span
+                >
+                <span data-translate="service-roadside-feature3"
+                  >• Yakıt ikmali</span
+                >
               </div>
             </div>
             <div class="service-card">
               <div class="service-icon">
                 <i class="fas fa-warehouse"></i>
               </div>
-              <h3 class="service-title">Garaj Taşıma</h3>
-              <p class="service-desc">Araç garaj taşıma ve park etme hizmeti</p>
+              <h3 class="service-title" data-translate="service-garage-title">
+                Garaj Taşıma
+              </h3>
+              <p class="service-desc" data-translate="service-garage-desc">
+                Araç garaj taşıma ve park etme hizmeti
+              </p>
               <div class="service-features">
-                <span>• Güvenli taşıma</span>
-                <span>• Özenli hizmet</span>
-                <span>• Kapıdan kapıya</span>
+                <span data-translate="service-garage-feature1"
+                  >• Güvenli taşıma</span
+                >
+                <span data-translate="service-garage-feature2"
+                  >• Özenli hizmet</span
+                >
+                <span data-translate="service-garage-feature3"
+                  >• Kapıdan kapıya</span
+                >
               </div>
             </div>
             <div class="service-card">
               <div class="service-icon">
                 <i class="fas fa-motorcycle"></i>
               </div>
-              <h3 class="service-title">Motosiklet Çekici</h3>
-              <p class="service-desc">Motosiklet ve scooter taşıma hizmeti</p>
+              <h3
+                class="service-title"
+                data-translate="service-motorcycle-title"
+              >
+                Motosiklet Çekici
+              </h3>
+              <p class="service-desc" data-translate="service-motorcycle-desc">
+                Motosiklet ve scooter taşıma hizmeti
+              </p>
               <div class="service-features">
-                <span>• Özel platform</span>
-                <span>• Güvenli bağlama</span>
-                <span>• Hasar koruması</span>
+                <span data-translate="service-motorcycle-feature1"
+                  >• Özel platform</span
+                >
+                <span data-translate="service-motorcycle-feature2"
+                  >• Güvenli bağlama</span
+                >
+                <span data-translate="service-motorcycle-feature3"
+                  >• Hasar koruması</span
+                >
               </div>
             </div>
             <div class="service-card">
               <div class="service-icon">
                 <i class="fas fa-truck"></i>
               </div>
-              <h3 class="service-title">Ağır Vasıta Çekici</h3>
-              <p class="service-desc">
+              <h3 class="service-title" data-translate="service-heavy-title">
+                Ağır Vasıta Çekici
+              </h3>
+              <p class="service-desc" data-translate="service-heavy-desc">
                 Kamyon, minibüs ve ağır araç çekici hizmeti
               </p>
               <div class="service-features">
-                <span>• Ağır tonajlı</span>
-                <span>• Profesyonel ekip</span>
-                <span>• Özel ekipman</span>
+                <span data-translate="service-heavy-feature1"
+                  >• Ağır tonajlı</span
+                >
+                <span data-translate="service-heavy-feature2"
+                  >• Profesyonel ekip</span
+                >
+                <span data-translate="service-heavy-feature3"
+                  >• Özel ekipman</span
+                >
               </div>
             </div>
           </div>
@@ -1937,9 +404,11 @@
           <div class="section-header">
             <h2 class="section-title">
               <i class="fas fa-images"></i>
-              Çekici Filomuz
+              <span data-translate="section-gallery">Çekici Filomuz</span>
             </h2>
-            <p class="section-desc">Modern ve güvenilir çekici araçlarımız</p>
+            <p class="section-desc" data-translate="section-gallery-desc">
+              Modern ve güvenilir çekici araçlarımız
+            </p>
           </div>
           <div class="gallery-grid">
             <div class="gallery-item">
@@ -1950,8 +419,10 @@
               />
               <div class="gallery-overlay">
                 <div class="gallery-content">
-                  <h4>Şehir İçi Çekici</h4>
-                  <p>Dar alanlarda kolay manevra</p>
+                  <h4 data-translate="gallery-city-title">Şehir İçi Çekici</h4>
+                  <p data-translate="gallery-city-desc">
+                    Dar alanlarda kolay manevra
+                  </p>
                   <button
                     class="gallery-btn"
                     onclick="openGalleryModal('images/tow-truck2.jpg')"
@@ -1969,11 +440,15 @@
               />
               <div class="gallery-overlay">
                 <div class="gallery-content">
-                  <h4>Ağır Tonajlı Çekici</h4>
-                  <p>Büyük araçlar için özel çekici</p>
+                  <h4 data-translate="gallery-heavy-title">
+                    Ağır Tonajlı Çekici
+                  </h4>
+                  <p data-translate="gallery-heavy-desc">
+                    Büyük araçlar için özel çekici
+                  </p>
                   <button
                     class="gallery-btn"
-                    onclick="openGalleryModal('images/tow-truck2.jpg')"
+                    onclick="openGalleryModal('images/tow-truck1.jpg')"
                   >
                     <i class="fas fa-expand"></i>
                   </button>
@@ -1988,8 +463,12 @@
               />
               <div class="gallery-overlay">
                 <div class="gallery-content">
-                  <h4>Hafif Araç Çekici</h4>
-                  <p>Otomobiller için ideal</p>
+                  <h4 data-translate="gallery-light-title">
+                    Hafif Araç Çekici
+                  </h4>
+                  <p data-translate="gallery-light-desc">
+                    Otomobiller için ideal
+                  </p>
                   <button
                     class="gallery-btn"
                     onclick="openGalleryModal('images/tow-truck3.jpg')"
@@ -2007,8 +486,12 @@
               />
               <div class="gallery-overlay">
                 <div class="gallery-content">
-                  <h4>Acil Müdahale Aracı</h4>
-                  <p>7/24 hazır beklemede</p>
+                  <h4 data-translate="gallery-emergency-title">
+                    Acil Müdahale Aracı
+                  </h4>
+                  <p data-translate="gallery-emergency-desc">
+                    7/24 hazır beklemede
+                  </p>
                   <button
                     class="gallery-btn"
                     onclick="openGalleryModal('images/tow-truck4.jpg')"
@@ -2026,8 +509,12 @@
               />
               <div class="gallery-overlay">
                 <div class="gallery-content">
-                  <h4>Platform Çekici</h4>
-                  <p>Lüks araçlar için özel</p>
+                  <h4 data-translate="gallery-platform-title">
+                    Platform Çekici
+                  </h4>
+                  <p data-translate="gallery-platform-desc">
+                    Lüks araçlar için özel
+                  </p>
                   <button
                     class="gallery-btn"
                     onclick="openGalleryModal('images/tow-truck5.jpg')"
@@ -2045,8 +532,10 @@
               />
               <div class="gallery-overlay">
                 <div class="gallery-content">
-                  <h4>Hibrit Çekici</h4>
-                  <p>Çevre dostu teknoloji</p>
+                  <h4 data-translate="gallery-hybrid-title">Hibrit Çekici</h4>
+                  <p data-translate="gallery-hybrid-desc">
+                    Çevre dostu teknoloji
+                  </p>
                   <button
                     class="gallery-btn"
                     onclick="openGalleryModal('images/tow-truck6.jpg')"
@@ -2068,19 +557,19 @@
               <div class="section-header">
                 <h2 class="section-title">
                   <i class="fas fa-info-circle"></i>
-                  Hakkımızda
+                  <span data-translate="section-about">Hakkımızda</span>
                 </h2>
-                <p class="section-desc">
+                <p class="section-desc" data-translate="section-about-desc">
                   2022'den beri İstanbul'da güvenilir çekici hizmeti
                 </p>
               </div>
               <div class="about-story">
-                <p>
+                <p data-translate="about-story-p1">
                   Borcelle Çekici Servisi olarak, İstanbul genelinde 7/24
                   kesintisiz hizmet veren bir aile şirketiyiz. 2022 yılından bu
                   yana binlerce müşterimizin güvenini kazandık.
                 </p>
-                <p>
+                <p data-translate="about-story-p2">
                   Modern çekici filosumuz ve deneyimli ekibimizle, en zor
                   durumlarınızda yanınızdayız. İstanbul merkezli olarak faaliyet
                   gösteriyoruz ve şehrin her köşesine hızla ulaşabilmekteyiz.
@@ -2103,22 +592,30 @@
             <div class="value-item">
               <i class="fas fa-heart"></i>
               <div>
-                <h4>Müşteri Memnuniyeti</h4>
-                <p>Her müşterimizi aile ferdi gibi görürüz</p>
+                <h4 data-translate="value-satisfaction-title">
+                  Müşteri Memnuniyeti
+                </h4>
+                <p data-translate="value-satisfaction-desc">
+                  Her müşterimizi aile ferdi gibi görürüz
+                </p>
               </div>
             </div>
             <div class="value-item">
               <i class="fas fa-shield-alt"></i>
               <div>
-                <h4>Güvenilir Hizmet</h4>
-                <p>Sigortalı ve güvenli taşıma garantisi</p>
+                <h4 data-translate="value-reliable-title">Güvenilir Hizmet</h4>
+                <p data-translate="value-reliable-desc">
+                  Sigortalı ve güvenli taşıma garantisi
+                </p>
               </div>
             </div>
             <div class="value-item">
               <i class="fas fa-clock"></i>
               <div>
-                <h4>Hızlı Müdahale</h4>
-                <p>15 dakika içinde olay yerine ulaşım</p>
+                <h4 data-translate="value-fast-title">Hızlı Müdahale</h4>
+                <p data-translate="value-fast-desc">
+                  15 dakika içinde olay yerine ulaşım
+                </p>
               </div>
             </div>
           </div>
@@ -2131,9 +628,11 @@
           <div class="section-header">
             <h2 class="section-title">
               <i class="fas fa-phone"></i>
-              İletişim
+              <span data-translate="section-contact">İletişim</span>
             </h2>
-            <p class="section-desc">Acil durumlarınızda bize hemen ulaşın</p>
+            <p class="section-desc" data-translate="section-contact-desc">
+              Acil durumlarınızda bize hemen ulaşın
+            </p>
           </div>
           <div class="contact-content">
             <div class="contact-info">
@@ -2142,7 +641,7 @@
                   <i class="fas fa-phone"></i>
                 </div>
                 <div class="contact-details">
-                  <h4>Telefon 1</h4>
+                  <h4 data-translate="contact-phone1">Telefon 1</h4>
                   <a href="tel:+905551234567">0555 123 45 67</a>
                 </div>
               </div>
@@ -2151,7 +650,7 @@
                   <i class="fas fa-phone"></i>
                 </div>
                 <div class="contact-details">
-                  <h4>Telefon 2</h4>
+                  <h4 data-translate="contact-phone2">Telefon 2</h4>
                   <a href="tel:+905329876543">0532 987 65 43</a>
                 </div>
               </div>
@@ -2160,8 +659,10 @@
                   <i class="fas fa-clock"></i>
                 </div>
                 <div class="contact-details">
-                  <h4>Çalışma Saatleri</h4>
-                  <span>7/24 Her Gün Açık</span>
+                  <h4 data-translate="contact-hours">Çalışma Saatleri</h4>
+                  <span data-translate="contact-hours-text"
+                    >7/24 Her Gün Açık</span
+                  >
                 </div>
               </div>
               <div class="contact-item">
@@ -2169,14 +670,19 @@
                   <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div class="contact-details">
-                  <h4>Ofis Adresimiz</h4>
-                  <span>Bakırköy, İstanbul</span>
+                  <h4 data-translate="contact-office">Ofis Adresimiz</h4>
+                  <span data-translate="contact-office-text"
+                    >Bakırköy, İstanbul</span
+                  >
                   <a
                     href="https://maps.google.com/?q=40.9833,28.8667"
                     target="_blank"
                     class="map-link"
                   >
-                    <i class="fas fa-external-link-alt"></i> Haritada Görüntüle
+                    <i class="fas fa-external-link-alt"></i>
+                    <span data-translate="contact-map-link"
+                      >Haritada Görüntüle</span
+                    >
                   </a>
                 </div>
               </div>
@@ -2185,8 +691,10 @@
                   <i class="fas fa-map"></i>
                 </div>
                 <div class="contact-details">
-                  <h4>Hizmet Alanı</h4>
-                  <span>İstanbul Geneli</span>
+                  <h4 data-translate="contact-service-area">Hizmet Alanı</h4>
+                  <span data-translate="contact-service-area-text"
+                    >İstanbul Geneli</span
+                  >
                 </div>
               </div>
               <div class="contact-item">
@@ -2194,7 +702,7 @@
                   <i class="fas fa-envelope"></i>
                 </div>
                 <div class="contact-details">
-                  <h4>E-posta</h4>
+                  <h4 data-translate="contact-email">E-posta</h4>
                   <a href="mailto:info@borcelle.com">info@borcelle.com</a>
                 </div>
               </div>
@@ -2213,9 +721,11 @@
                 alt="Borcelle"
                 class="footer-logo-img"
               />
-              <h3>Borcelle Çekici Servisi</h3>
+              <h3 data-translate="footer-company-name">
+                Borcelle Çekici Servisi
+              </h3>
             </div>
-            <p>
+            <p data-translate="footer-desc">
               İstanbul'da güvenilir çekici hizmeti. 2022'den beri binlerce
               müşterimizin güvenini kazandık.
             </p>
@@ -2233,36 +743,74 @@
             </div>
           </div>
           <div class="footer-section">
-            <h4>Hizmetlerimiz</h4>
+            <h4 data-translate="footer-services-title">Hizmetlerimiz</h4>
             <ul>
-              <li><a href="#services">Kaza Çekici</a></li>
-              <li><a href="#services">Arıza Çekici</a></li>
-              <li><a href="#services">Yol Yardım</a></li>
-              <li><a href="#services">Garaj Taşıma</a></li>
+              <li>
+                <a href="#services" data-translate="footer-service-accident"
+                  >Kaza Çekici</a
+                >
+              </li>
+              <li>
+                <a href="#services" data-translate="footer-service-breakdown"
+                  >Arıza Çekici</a
+                >
+              </li>
+              <li>
+                <a href="#services" data-translate="footer-service-roadside"
+                  >Yol Yardım</a
+                >
+              </li>
+              <li>
+                <a href="#services" data-translate="footer-service-garage"
+                  >Garaj Taşıma</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-section">
-            <h4>Hızlı Bağlantılar</h4>
+            <h4 data-translate="footer-quick-links">Hızlı Bağlantılar</h4>
             <ul>
-              <li><a href="#home">Ana Sayfa</a></li>
-              <li><a href="#about">Hakkımızda</a></li>
-              <li><a href="#gallery">Galeri</a></li>
-              <li><a href="#contact">İletişim</a></li>
+              <li>
+                <a href="#home" data-translate="footer-link-home">Ana Sayfa</a>
+              </li>
+              <li>
+                <a href="#about" data-translate="footer-link-about"
+                  >Hakkımızda</a
+                >
+              </li>
+              <li>
+                <a href="#gallery" data-translate="footer-link-gallery"
+                  >Galeri</a
+                >
+              </li>
+              <li>
+                <a href="#contact" data-translate="footer-link-contact"
+                  >İletişim</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-section">
-            <h4>İletişim</h4>
+            <h4 data-translate="footer-contact-title">İletişim</h4>
             <div class="footer-contact">
               <p><i class="fas fa-phone"></i> 0555 123 45 67</p>
               <p><i class="fas fa-phone"></i> 0532 987 65 43</p>
               <p><i class="fas fa-envelope"></i> info@borcelle.com</p>
-              <p><i class="fas fa-map-marker-alt"></i> İstanbul Geneli</p>
-              <p><i class="fas fa-clock"></i> 7/24 Hizmet</p>
+              <p>
+                <i class="fas fa-map-marker-alt"></i>
+                <span data-translate="footer-location">İstanbul Geneli</span>
+              </p>
+              <p>
+                <i class="fas fa-clock"></i>
+                <span data-translate="footer-service-text">7/24 Hizmet</span>
+              </p>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2022 Borcelle Çekici Servisi. Tüm hakları saklıdır.</p>
+          <p data-translate="footer-copyright">
+            &copy; 2022 Borcelle Çekici Servisi. Tüm hakları saklıdır.
+          </p>
         </div>
       </footer>
 
@@ -2287,757 +835,7 @@
       </div>
     </div>
 
-    <script>
-      // Orijinal JavaScript kodu buraya gelecek
-      // Global Variables
-      let selectedDistrict = null;
-      let isMenuOpen = false;
-
-      // İstanbul İlçeleri Listesi
-      const allDistricts = [
-        "Adalar",
-        "Arnavutköy",
-        "Ataşehir",
-        "Avcılar",
-        "Bağcılar",
-        "Bahçelievler",
-        "Bakırköy",
-        "Başakşehir",
-        "Bayrampaşa",
-        "Beşiktaş",
-        "Beykoz",
-        "Beylikdüzü",
-        "Beyoğlu",
-        "Büyükçekmece",
-        "Çatalca",
-        "Çekmeköy",
-        "Esenler",
-        "Esenyurt",
-        "Eyüpsultan",
-        "Fatih",
-        "Gaziosmanpaşa",
-        "Güngören",
-        "Kadıköy",
-        "Kağıthane",
-        "Kartal",
-        "Küçükçekmece",
-        "Maltepe",
-        "Pendik",
-        "Sancaktepe",
-        "Sarıyer",
-        "Silivri",
-        "Sultanbeyli",
-        "Sultangazi",
-        "Şile",
-        "Şişli",
-        "Tuzla",
-        "Ümraniye",
-        "Üsküdar",
-        "Zeytinburnu",
-      ];
-
-      // DOM yüklendiğinde başlat
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeApp();
-      });
-
-      // Ana başlatma fonksiyonu
-      function initializeApp() {
-        setupNavigation();
-        setupScrollEffects();
-        setupLocationSelection();
-        setupGalleryModal();
-        setupBackToTop();
-        detectUserLocation();
-        attachEventListeners();
-        initializeTypewriter();
-      }
-
-      // Typewriter efekti - Orijinal koddan alındı
-      function initializeTypewriter() {
-        const text = "7/24 Çekici Hizmeti";
-        const typewriterElement = document.getElementById("typewriter");
-        let index = 0;
-        let isDeleting = false;
-
-        function typeWriter() {
-          if (!isDeleting && index < text.length) {
-            typewriterElement.textContent = text.substring(0, index + 1);
-            index++;
-            setTimeout(typeWriter, 150);
-          } else if (!isDeleting && index >= text.length) {
-            setTimeout(() => {
-              isDeleting = true;
-              typeWriter();
-            }, 2000);
-          } else if (isDeleting && index > 0) {
-            typewriterElement.textContent = text.substring(0, index - 1);
-            index--;
-            setTimeout(typeWriter, 100);
-          } else if (isDeleting && index === 0) {
-            isDeleting = false;
-            setTimeout(typeWriter, 500);
-          }
-        }
-
-        setTimeout(typeWriter, 1000);
-      }
-
-      // WhatsApp konum gönderme fonksiyonu
-      function sendLocationToWhatsApp() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            function (position) {
-              const lat = position.coords.latitude;
-              const lng = position.coords.longitude;
-              const phoneNumber = "905303993246";
-              const message = `Merhaba! Acil çekici hizmetine ihtiyacım var. Konumum: https://maps.google.com/?q=${lat},${lng}`;
-              const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-                message
-              )}`;
-              window.open(whatsappUrl, "_blank");
-
-              showWhatsAppFeedback();
-            },
-            function (error) {
-              // Konum alınamazsa genel mesaj gönder
-              const phoneNumber = "905303993246";
-              const message =
-                "Merhaba! Acil çekici hizmetine ihtiyacım var. Lütfen beni arayınız.";
-              const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-                message
-              )}`;
-              window.open(whatsappUrl, "_blank");
-
-              showWhatsAppFeedback(
-                "Konum paylaşılamadı, ancak mesaj gönderildi!"
-              );
-            }
-          );
-        } else {
-          // Geolocation desteklenmiyorsa
-          const phoneNumber = "905303993246";
-          const message =
-            "Merhaba! Acil çekici hizmetine ihtiyacım var. Lütfen beni arayınız.";
-          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-            message
-          )}`;
-          window.open(whatsappUrl, "_blank");
-
-          showWhatsAppFeedback("WhatsApp'a yönlendiriliyorsunuz...");
-        }
-      }
-
-      // WhatsApp feedback göster
-      function showWhatsAppFeedback(
-        customMessage = "Konumunuz WhatsApp'a gönderiliyor..."
-      ) {
-        const feedback = document.createElement("div");
-        feedback.style.cssText = `
-              position: fixed;
-              bottom: 100px;
-              left: 50%;
-              transform: translateX(-50%);
-              background: linear-gradient(135deg, #25D366, #128C7E);
-              color: white;
-              padding: 1rem 1.5rem;
-              border-radius: 25px;
-              font-size: 14px;
-              font-weight: 600;
-              z-index: 9999;
-              box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-              animation: slideUp 0.3s ease;
-              text-align: center;
-              max-width: 300px;
-          `;
-        feedback.innerHTML = `<i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> ${customMessage}`;
-
-        document.body.appendChild(feedback);
-
-        setTimeout(() => {
-          feedback.style.opacity = "0";
-          setTimeout(() => {
-            if (document.body.contains(feedback)) {
-              document.body.removeChild(feedback);
-            }
-          }, 300);
-        }, 3000);
-      }
-
-      // Navigation setup
-      function setupNavigation() {
-        const navToggle = document.getElementById("navToggle");
-        const navMenu = document.getElementById("navMenu");
-        const navLinks = document.querySelectorAll(".nav-link");
-
-        // Mobile menu toggle
-        if (navToggle) {
-          navToggle.addEventListener("click", function () {
-            navToggle.classList.toggle("active");
-            navMenu.classList.toggle("active");
-            isMenuOpen = !isMenuOpen;
-
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = isMenuOpen ? "hidden" : "";
-          });
-        }
-
-        // Close menu when clicking on links
-        navLinks.forEach((link) => {
-          link.addEventListener("click", function () {
-            navMenu.classList.remove("active");
-            navToggle.classList.remove("active");
-            isMenuOpen = false;
-            document.body.style.overflow = "";
-
-            // Update active link
-            navLinks.forEach((l) => l.classList.remove("active"));
-            this.classList.add("active");
-          });
-        });
-
-        // Smooth scroll to sections
-        setupSmoothScroll();
-      }
-
-      // Smooth scroll için section linklerini ayarla
-      function setupSmoothScroll() {
-        const navLinks = document.querySelectorAll('a[href^="#"]');
-
-        navLinks.forEach((link) => {
-          link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            const targetSection = document.getElementById(targetId);
-
-            if (targetSection) {
-              const navHeight = 70;
-              const targetPosition = targetSection.offsetTop - navHeight;
-
-              window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth",
-              });
-            }
-          });
-        });
-      }
-
-      // Scroll efektlerini ayarla
-      function setupScrollEffects() {
-        const navbar = document.querySelector(".navbar");
-        let lastScrollTop = 0;
-
-        window.addEventListener("scroll", function () {
-          const scrollTop =
-            window.pageYOffset || document.documentElement.scrollTop;
-
-          // Navbar scroll effect
-          if (scrollTop > 100) {
-            navbar.classList.add("scrolled");
-          } else {
-            navbar.classList.remove("scrolled");
-          }
-
-          // Hide/show navbar on scroll
-          if (scrollTop > lastScrollTop && scrollTop > 200) {
-            navbar.style.transform = "translateY(-100%)";
-          } else {
-            navbar.style.transform = "translateY(0)";
-          }
-
-          lastScrollTop = scrollTop;
-
-          // Update active nav link based on scroll position
-          updateActiveNavLink();
-
-          // Handle floating elements
-          handleFloatingElements();
-        });
-      }
-
-      // Active nav link güncelle
-      function updateActiveNavLink() {
-        const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll(".nav-link");
-
-        let currentSection = "";
-
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop - 100;
-          const sectionHeight = section.clientHeight;
-
-          if (
-            window.pageYOffset >= sectionTop &&
-            window.pageYOffset < sectionTop + sectionHeight
-          ) {
-            currentSection = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${currentSection}`) {
-            link.classList.add("active");
-          }
-        });
-      }
-
-      // Floating elementleri yönet
-      function handleFloatingElements() {
-        const backToTop = document.getElementById("backToTop");
-        const floatingCall = document.getElementById("floatingCallBtn");
-
-        if (window.pageYOffset > 300) {
-          if (backToTop) backToTop.classList.add("show");
-          if (floatingCall) floatingCall.style.display = "block";
-        } else {
-          if (backToTop) backToTop.classList.remove("show");
-          if (floatingCall) floatingCall.style.display = "none";
-        }
-      }
-
-      // Back to top button
-      function setupBackToTop() {
-        const backToTop = document.getElementById("backToTop");
-
-        if (backToTop) {
-          backToTop.addEventListener("click", function () {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
-          });
-        }
-      }
-
-      // Konum seçimi ayarla
-      function setupLocationSelection() {
-        const showAllBtn = document.getElementById("showAllBtn");
-
-        if (showAllBtn) {
-          showAllBtn.addEventListener("click", toggleAllDistricts);
-        }
-      }
-
-      // Tüm ilçeleri göster/gizle
-      function toggleAllDistricts() {
-        const showAllBtn = document.getElementById("showAllBtn");
-        const locationGrid = document.querySelector(".location-grid");
-
-        if (!showAllBtn || !locationGrid) return;
-
-        const isExpanded = showAllBtn.dataset.expanded === "true";
-
-        if (!isExpanded) {
-          showAllDistricts(locationGrid, showAllBtn);
-        } else {
-          showDefaultDistricts(locationGrid, showAllBtn);
-        }
-      }
-
-      function showAllDistricts(locationGrid, button) {
-        const currentItems = locationGrid.querySelectorAll(".location-item");
-        const currentDistricts = Array.from(currentItems).map(
-          (item) => item.dataset.district
-        );
-
-        // Eksik ilçeleri ekle
-        allDistricts.forEach((district) => {
-          if (!currentDistricts.includes(district)) {
-            const item = createLocationItem(district);
-            locationGrid.appendChild(item);
-
-            // Fade in animation
-            setTimeout(() => {
-              item.style.opacity = "1";
-              item.style.transform = "translateY(0)";
-            }, 50);
-          }
-        });
-
-        // Grid'i yeniden düzenle
-        locationGrid.style.gridTemplateColumns =
-          "repeat(auto-fit, minmax(150px, 1fr))";
-
-        // Buton metnini güncelle
-        button.innerHTML =
-          '<i class="fas fa-chevron-up"></i> <span>Daha Az Göster</span>';
-        button.dataset.expanded = "true";
-
-        // Smooth scroll
-        setTimeout(() => {
-          button.scrollIntoView({ behavior: "smooth", block: "end" });
-        }, 300);
-      }
-
-      function showDefaultDistricts(locationGrid, button) {
-        const defaultDistricts = [
-          "Kadıköy",
-          "Beşiktaş",
-          "Şişli",
-          "Üsküdar",
-          "Bakırköy",
-          "Fatih",
-          "Beyoğlu",
-          "Sarıyer",
-          "Pendik",
-          "Maltepe",
-        ];
-        const allItems = locationGrid.querySelectorAll(".location-item");
-
-        allItems.forEach((item) => {
-          if (!defaultDistricts.includes(item.dataset.district)) {
-            item.style.opacity = "0";
-            item.style.transform = "translateY(-20px)";
-            setTimeout(() => {
-              if (item.parentNode) {
-                item.remove();
-              }
-            }, 300);
-          }
-        });
-
-        // Grid'i 5x5 düzenine döndür
-        locationGrid.style.gridTemplateColumns = "repeat(5, 1fr)";
-
-        button.innerHTML =
-          '<i class="fas fa-chevron-down"></i> <span>Tüm İlçeleri Göster</span>';
-        button.dataset.expanded = "false";
-      }
-
-      function createLocationItem(district) {
-        const item = document.createElement("div");
-        item.className = "location-item";
-        item.dataset.district = district;
-        item.innerHTML = `<i class="fas fa-location-dot"></i> <span>${district}</span>`;
-        item.style.opacity = "0";
-        item.style.transform = "translateY(20px)";
-        item.style.transition = "all 0.3s ease";
-        return item;
-      }
-
-      // Galeri modal ayarla
-      function setupGalleryModal() {
-        const modal = document.getElementById("galleryModal");
-
-        // Modal dışına tıklayınca kapat
-        if (modal) {
-          modal.addEventListener("click", function (event) {
-            if (event.target === modal) {
-              closeGalleryModal();
-            }
-          });
-        }
-
-        // ESC tuşu ile kapat
-        document.addEventListener("keydown", function (event) {
-          if (event.key === "Escape") {
-            closeGalleryModal();
-          }
-        });
-      }
-
-      // Galeri modal aç
-      function openGalleryModal(imageSrc) {
-        const modal = document.getElementById("galleryModal");
-        const modalImage = document.getElementById("modalImage");
-
-        if (modal && modalImage) {
-          modalImage.src = imageSrc;
-          modal.style.display = "block";
-          document.body.style.overflow = "hidden";
-
-          // Fade in animation
-          setTimeout(() => {
-            modal.style.opacity = "1";
-          }, 10);
-        }
-      }
-
-      // Galeri modal kapat
-      function closeGalleryModal() {
-        const modal = document.getElementById("galleryModal");
-
-        if (modal) {
-          modal.style.opacity = "0";
-          setTimeout(() => {
-            modal.style.display = "none";
-            document.body.style.overflow = "";
-          }, 300);
-        }
-      }
-
-      // Konum algılama
-      function detectUserLocation() {
-        if ("geolocation" in navigator) {
-          const options = {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 300000, // 5 dakika cache
-          };
-
-          navigator.geolocation.getCurrentPosition(
-            handleLocationSuccess,
-            handleLocationError,
-            options
-          );
-        }
-      }
-
-      function handleLocationSuccess(position) {
-        const { latitude, longitude } = position.coords;
-
-        findNearestDistrict(latitude, longitude)
-          .then((district) => {
-            if (district) {
-              highlightDistrict(district);
-              selectedDistrict = district;
-              updateUIForLocation(district);
-              showLocationPrompt(district);
-            }
-          })
-          .catch((error) => {
-            console.log("İlçe bulunamadı:", error);
-          });
-      }
-
-      function handleLocationError(error) {
-        console.log("Konum alınamadı:", error.message);
-        showGeneralLocationPrompt();
-      }
-
-      // En yakın ilçeyi bul
-      async function findNearestDistrict(lat, lng) {
-        const districtCoords = {
-          Kadıköy: { lat: 40.9833, lng: 29.0833 },
-          Beşiktaş: { lat: 41.0422, lng: 29.0061 },
-          Şişli: { lat: 41.0608, lng: 28.9875 },
-          Üsküdar: { lat: 41.0214, lng: 29.0739 },
-          Bakırköy: { lat: 40.9833, lng: 28.8667 },
-          Fatih: { lat: 41.0192, lng: 28.9497 },
-          Beyoğlu: { lat: 41.0369, lng: 28.9744 },
-          Sarıyer: { lat: 41.1061, lng: 29.0544 },
-        };
-
-        let nearestDistrict = null;
-        let minDistance = Infinity;
-
-        Object.entries(districtCoords).forEach(([district, coords]) => {
-          const distance = calculateDistance(lat, lng, coords.lat, coords.lng);
-          if (distance < minDistance) {
-            minDistance = distance;
-            nearestDistrict = district;
-          }
-        });
-
-        return minDistance < 50 ? nearestDistrict : null;
-      }
-
-      function calculateDistance(lat1, lon1, lat2, lon2) {
-        const R = 6371;
-        const dLat = ((lat2 - lat1) * Math.PI) / 180;
-        const dLon = ((lon2 - lon1) * Math.PI) / 180;
-        const a =
-          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos((lat1 * Math.PI) / 180) *
-            Math.cos((lat2 * Math.PI) / 180) *
-            Math.sin(dLon / 2) *
-            Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return R * c;
-      }
-
-      // İlçeyi vurgula
-      function highlightDistrict(district) {
-        const districtBtn = document.querySelector(
-          `[data-district="${district}"]`
-        );
-        if (districtBtn) {
-          districtBtn.classList.add("selected");
-          districtBtn.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
-      }
-
-      // UI'ı seçilen konuma göre güncelle
-      function updateUIForLocation(district) {
-        const ctaButton = document.querySelector(".cta-button.primary");
-        if (ctaButton) {
-          const ctaText = ctaButton.querySelector(".cta-main");
-          if (ctaText) {
-            ctaText.textContent = `${district.toUpperCase()} İÇİN ARA`;
-          }
-        }
-
-        const ctaNote = document.querySelector(".cta-note");
-        if (ctaNote) {
-          ctaNote.textContent = `${district} bölgesinde 15 dakikada yanınızdayız!`;
-        }
-      }
-
-      // Konum istemi göster
-      function showLocationPrompt(district) {
-        const notification = document.createElement("div");
-        notification.style.cssText = `
-              position: fixed;
-              top: 90px;
-              left: 50%;
-              transform: translateX(-50%);
-              background: linear-gradient(135deg, #2196F3, #1976D2);
-              color: white;
-              padding: 1rem 1.5rem;
-              border-radius: 10px;
-              font-size: 14px;
-              font-weight: 600;
-              z-index: 9999;
-              box-shadow: 0 4px 20px rgba(33, 150, 243, 0.3);
-              text-align: center;
-              max-width: 300px;
-              opacity: 0;
-              transform: translateX(-50%) translateY(-20px);
-              transition: all 0.3s ease;
-          `;
-        notification.innerHTML = `
-              <i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i>
-              ${district} bölgenizde çekici hizmeti!
-          `;
-
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-          notification.style.opacity = "1";
-          notification.style.transform = "translateX(-50%) translateY(0)";
-        }, 100);
-
-        setTimeout(() => {
-          notification.style.opacity = "0";
-          setTimeout(() => {
-            if (document.body.contains(notification)) {
-              document.body.removeChild(notification);
-            }
-          }, 300);
-        }, 4000);
-      }
-
-      function showGeneralLocationPrompt() {
-        const locationSection = document.querySelector(
-          ".location-section .section-desc"
-        );
-        if (locationSection) {
-          locationSection.innerHTML = `
-                  <span style="color: #432626; font-weight: 600;">
-                      <i class="fas fa-map-marker-alt"></i>
-                      Hangi bölgedesiniz? Size en yakın çekici ekibimizi yönlendirelim
-                  </span>
-              `;
-        }
-      }
-
-      // Event listener'ları ekle
-      function attachEventListeners() {
-        const callButtons = document.querySelectorAll('a[href^="tel:"]');
-        callButtons.forEach((btn) => {
-          btn.addEventListener("click", trackCall);
-        });
-
-        setupIntersectionObserver();
-      }
-
-      // Intersection Observer ayarla
-      function setupIntersectionObserver() {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("animate-in");
-              observer.unobserve(entry.target);
-            }
-          });
-        }, observerOptions);
-
-        const animatedElements = document.querySelectorAll(
-          ".service-card, .gallery-item, .contact-item, .value-item"
-        );
-        animatedElements.forEach((el) => {
-          observer.observe(el);
-        });
-      }
-
-      function trackCall(event) {
-        const phoneNumber = event.currentTarget.href.replace("tel:", "");
-        console.log("Call tracked:", phoneNumber);
-        showCallFeedback();
-      }
-
-      function showCallFeedback() {
-        const feedback = document.createElement("div");
-        feedback.style.cssText = `
-              position: fixed;
-              bottom: 100px;
-              left: 50%;
-              transform: translateX(-50%);
-              background: linear-gradient(135deg, #FF5722, #E64A19);
-              color: white;
-              padding: 1rem 1.5rem;
-              border-radius: 25px;
-              font-size: 14px;
-              font-weight: 600;
-              z-index: 9999;
-              box-shadow: 0 4px 20px rgba(255, 87, 34, 0.3);
-              animation: slideUp 0.3s ease;
-          `;
-        feedback.innerHTML =
-          '<i class="fas fa-phone" style="margin-right: 0.5rem;"></i> Aranıyor...';
-
-        document.body.appendChild(feedback);
-
-        setTimeout(() => {
-          feedback.style.opacity = "0";
-          setTimeout(() => {
-            if (document.body.contains(feedback)) {
-              document.body.removeChild(feedback);
-            }
-          }, 300);
-        }, 2000);
-      }
-
-      // Error handling
-      window.addEventListener("error", function (event) {
-        console.error("JavaScript error:", event.error);
-      });
-
-      // Keyboard shortcuts
-      document.addEventListener("keydown", function (event) {
-        if (
-          event.code === "Space" &&
-          !event.target.matches("input, textarea, button")
-        ) {
-          event.preventDefault();
-          const callBtn = document.querySelector(".cta-button.primary");
-          if (callBtn) callBtn.click();
-        }
-
-        if (event.code === "Escape") {
-          closeGalleryModal();
-          const navMenu = document.getElementById("navMenu");
-          const navToggle = document.getElementById("navToggle");
-          if (navMenu && navMenu.classList.contains("active")) {
-            navMenu.classList.remove("active");
-            navToggle.classList.remove("active");
-            isMenuOpen = false;
-            document.body.style.overflow = "";
-          }
-        }
-      });
-
-      // Global functions
-      window.openGalleryModal = openGalleryModal;
-      window.closeGalleryModal = closeGalleryModal;
-      window.sendLocationToWhatsApp = sendLocationToWhatsApp;
-    </script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
   </body>
 </html>
