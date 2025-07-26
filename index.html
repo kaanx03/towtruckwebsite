@@ -2390,7 +2390,7 @@
             function (position) {
               const lat = position.coords.latitude;
               const lng = position.coords.longitude;
-              const phoneNumber = "905551234567";
+              const phoneNumber = "905303993246";
               const message = `Merhaba! Acil çekici hizmetine ihtiyacım var. Konumum: https://maps.google.com/?q=${lat},${lng}`;
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                 message
@@ -2401,7 +2401,7 @@
             },
             function (error) {
               // Konum alınamazsa genel mesaj gönder
-              const phoneNumber = "905551234567";
+              const phoneNumber = "905303993246";
               const message =
                 "Merhaba! Acil çekici hizmetine ihtiyacım var. Lütfen beni arayınız.";
               const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
@@ -2416,7 +2416,7 @@
           );
         } else {
           // Geolocation desteklenmiyorsa
-          const phoneNumber = "905551234567";
+          const phoneNumber = "905303993246";
           const message =
             "Merhaba! Acil çekici hizmetine ihtiyacım var. Lütfen beni arayınız.";
           const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
